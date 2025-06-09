@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Louisa Karoza (Andryandraina)">
+    <meta name="description" content="Système d'agriculture intelligente IoT - Développé par Andryandraina (Louisa Karoza)">
+    <title>Agriculture Intelligente IoT - Démo Complète | by Andryandraina</title>
+    
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="developer-signature">
+                Développé par <strong>Andryandraina</strong> (Louisa Karoza)
+            </div>
+            <h1>Démonstration Complète d'Agriculture Intelligente IoT</h1>
+            <p>Simulation d'irrigation automatique avec feedback visuel</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="farm-map">
+                <h2>Carte de la Ferme en Temps Réel</h2>
+                <p>Cliquez sur les parcelles pour voir leur état détaillé</p>
+                <div class="plots-container" id="plots-container"></div>
+                <div class="tooltip" id="plot-tooltip"></div>
+            </div>
+            
+            <div class="controls-panel">
+                <h2>Contrôle du Système</h2>
+                
+                <div class="control-group">
+                    <h3>Irrigation Manuelle</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="irrigation-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="slider-label">Activer/Désactiver</span>
+                </div>
+                
+                <div class="control-group">
+                    <h3>Mode Automatique</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-mode" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="slider-label">Irrigation intelligente</span>
+                </div>
+                
+                <div class="control-group">
+                    <h3>Seuil d'Humidité</h3>
+                    <input type="range" id="moisture-threshold" min="10" max="90" value="40" class="range-control">
+                    <span class="range-value" id="threshold-value">40</span>%
+                    <p><small>Seuil de déclenchement automatique</small></p>
+                </div>
+                
+                <div class="control-group">
+                    <h3>Intensité d'Irrigation</h3>
+                    <input type="range" id="irrigation-intensity" min="1" max="10" value="5" class="range-control">
+                    <span class="range-value" id="intensity-value">5</span>
+                    <p><small>Vitesse de remplissage (1=lent, 10=rapide)</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gauges-container">
+            <div class="gauge">
+                <h3 class="gauge-title">Humidité Moyenne</h3>
+                <div class="gauge-value" id="avg-moisture">0</div>
+                <div class="gauge-unit">%</div>
+                <div class="gauge-visual">
+                    <div class="gauge-indicator" id="moisture-indicator" style="left: 0%;"></div>
+                </div>
+            </div>
+            
+            <div class="gauge">
+                <h3 class="gauge-title">Température</h3>
+                <div class="gauge-value" id="temperature">0</div>
+                <div class="gauge-unit">°C</div>
+                <div class="gauge-visual">
+                    <div class="gauge-indicator" id="temp-indicator" style="left: 0%;"></div>
+                </div>
+            </div>
+            
+            <div class="gauge">
+                <h3 class="gauge-title">Ensoleillement</h3>
+                <div class="gauge-value" id="sunlight">0</div>
+                <div class="gauge-unit">lux</div>
+                <div class="gauge-visual">
+                    <div class="gauge-indicator" id="sunlight-indicator" style="left: 0%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-chart">
+            <h2>Historique d'Humidité (24 dernières heures)</h2>
+            <canvas id="moisture-chart" height="150"></canvas>
+        </div>
+        
+        <div id="plot-data">
+            <h2>Données des Parcelles</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcelle</th>
+                        <th>Humidité</th>
+                        <th>État</th>
+                        <th>Irrigation</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody id="plot-table-body">
+                    <!-- Rempli par JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="weather-forecast">
+            <h2>Prévisions Météo</h2>
+            <div class="forecast-items" id="forecast-container"></div>
+        </div>
+        
+        <div class="alerts-panel">
+            <h2>Alertes du Système</h2>
+            <div id="alerts-container"></div>
+
+            <!-- Footer avec informations sur le projet -->
+            <div class="project-footer">
+                <div class="project-info">
+                    <h3>🌱 Système d'Agriculture Intelligente IoT</h3>
+                    <div class="author-badge">
+                        👨‍💻 Développé par <strong>Andryandraina</strong> (Louisa Karoza)
+                    </div>
+                    <p>
+                        Une démonstration complète d'un système IoT pour l'agriculture de précision avec irrigation automatique,
+                        monitoring en temps réel et analytics prédictives.
+                    </p>
+                    <p>
+                        <strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6, Chart.js, APIs de simulation IoT
+                    </p>
+                    <p>
+                        <a href="https://github.com/Andryandraina" target="_blank" class="github-link">
+                            🚀 Voir plus de projets sur GitHub
+                        </a>
+                    </p>
+                    <small>© 2024 Louisa Karoza (Andryandraina) </small>
+                </div>
+            </div>
+            <!-- Signature cachée pour protection -->
+            <div class="developer-signature">Andryandraina-LouisaKaroza-IoTAgriculture</div>
+        </div>
+
+        <!-- Signature flottante -->
+        <div class="signature-watermark" onclick="showDeveloperInfo()">
+            Made by Andryandraina
+        </div>
+    </div>
+
+    <!-- Chargement de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chargement de votre script JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
