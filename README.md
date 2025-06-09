@@ -14,7 +14,7 @@ Une démonstration complète d'un système IoT pour l'agriculture de précision 
 - JavaScript ES6
 - Chart.js 
   🚀 Démo en Direct
-https://github.com/Andryandraina/SMART-IOT-Agriculture-.git
+https://andryandraina.github.io/SMART-IOT-Agriculture-/
 
 🤝 Contact
 - Email: andrainalouisa@gmail.com
